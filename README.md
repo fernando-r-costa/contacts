@@ -37,6 +37,6 @@
 
 ## Autor
 
-<img src="./FRC.gif" width=120px>
+<img src="./public/FRC.gif" width=120px>
 
 - LinkedIn - [Fernando R Costa](https://www.linkedin.com/in/fernando-r-costa/)
