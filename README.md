@@ -25,9 +25,15 @@
 
 ## Meu processo
 
-- [ ] Implementação tabela
 - [ ] Desktop-design
+  - [ ] Implementação tabela
+    - [ ] Pesquisa nome ou telefone
+    - [ ] Apresentar letra índice
+    - [ ] Paginação com botão (desabilitar no fim)
+  - [ ] Modal adicionar/editar
+  - [ ] Modal excluir
 - [ ] Mobile-design
+  - [ ] Ocultar "Novo contato"
 
 ## Autor
 
