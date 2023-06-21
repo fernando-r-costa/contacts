@@ -1,0 +1,16 @@
+.banner {
+    background-color: #002D69;
+    height: 90px;
+}
+
+.banner h1 {
+    color: #F8F8F8;
+    font-family: 'Montserrat';
+    font-weight: 400;
+    font-size: 24px;
+    padding: 30px 53px;
+}
+
+.banner strong {
+    font-weight: 800;
+}
