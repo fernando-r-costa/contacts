@@ -2,6 +2,7 @@ import './Table.css';
 import API from '../Services/api.js';
 import { useState, useEffect, useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
+import Search from '../Search';
 
 const Table = () => {
 
@@ -21,6 +22,15 @@ const Table = () => {
     const columns = useMemo(
         () => [
             {
+                id: 'avatar',
+                columnDefType: 'display',
+                Cell: () => (
+                    <div className='table_avatar'>
+                        <img src='./avatar.png' alt=''></img>
+                    </div>
+                ),
+            },
+            {
                 accessorFn: (row) => (
                     <div>
                         <h3>{row.name}</h3>
@@ -31,28 +41,32 @@ const Table = () => {
                 Header: '',
                 muiTableHeadCellProps: { sx: { color: 'green' } }, //custom props
             },
-            // {
-                //     accessorFn: (originalRow) => originalRow.fone, //alternate way
-                //     id: 'fone', //id required if you use accessorFn instead of accessorKey
-                //     header: 'fone',
-                //     Header: <i style={{ color: 'red' }}>Telefone</i>, //optional custom markup
-                // },
-            ],
-            [],);
-            
-            return (
-                <div className='table'>
+            {
+                id: 'edit',
+                columnDefType: 'display',
+                Cell: () => (
+                    <div className='table_edit'>
+                        <img src='./edit.png' alt=''></img>
+                        <img src='./delete.png' alt=''></img>
+                    </div>
+                ),
+            },
+        ],
+        [],);
+
+    return (
+        <div className='table'>
             <h2>Meus contatos</h2>
+
+            <Search/>
 
             <MaterialReactTable
                 columns={columns}
                 data={contacts}
-                enableHiding= {false}
-                enableFullScreenToggle= {false}
-                enableDensityToggle= {false}
-                enableColumnActions= {false}
-                enableFilters= {false}
-                enableSorting= {false}
+                enableColumnActions={false}
+                enableSorting={false}
+                enableTopToolbar={false}
+                enableTableHead={false}
             />
 
         </div>

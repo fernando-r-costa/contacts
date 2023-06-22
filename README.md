@@ -26,10 +26,11 @@
 ## Meu processo
 
 - [ ] Desktop-design
-  - [ ] Implementação tabela
-    - [ ] Pesquisa nome ou telefone
-    - [ ] Apresentar letra índice
-    - [ ] Paginação com botão (desabilitar no fim)
+  - [x] Implementação tabela
+  - [x] Pesquisa nome ou telefone
+  - [ ] Botão adicionar
+  - [ ] Paginação com botão (desabilitar no fim)
+  - [ ] Apresentar letra índice
   - [ ] Modal adicionar/editar
   - [ ] Modal excluir
 - [ ] Mobile-design
