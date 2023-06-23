@@ -13,13 +13,13 @@
     border: transparent;
 }
 
-.options {
+.search_options {
     display: inline-flex;
     flex-direction: column;
     width: 242px;
 }
 
-.options label {
+.search_options label {
     color: #333;
     font-size: 12px;
     font-family: 'Inter', sans-serif;
@@ -28,7 +28,7 @@
     margin: 4px 0 0 12px;
 }
 
-.options select {
+.search_options select {
     color: #333;
     font-size: 16px;
     font-family: 'Inter', sans-serif;
@@ -37,7 +37,7 @@
     outline: transparent;
 }
 
-.field {
+.search_text {
     display: flex;
     width: 248px;
     height: 48px;
@@ -47,13 +47,13 @@
     outline: transparent;
 }
 
-.field img {
+.search_text img {
     width: 20px;
     height: 20px;
     margin-top: 5px;
 }
 
-.field input {
+.search_text input {
     width: 190px;
     margin-left: 10px;
     color: #333;
@@ -63,7 +63,7 @@
     outline: transparent;
 }
 
-.field input::placeholder {
+.search_text input::placeholder {
     color: #333;
     font-size: 16px;
     font-family: 'Inter', sans-serif;

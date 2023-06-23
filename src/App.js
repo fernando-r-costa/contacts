@@ -1,5 +1,5 @@
-import Banner from "./Banner";
-import Table from "./Table";
+import Banner from "./Components/Banner";
+import Table from "./Components/Table";
 
 function App() {
   return (

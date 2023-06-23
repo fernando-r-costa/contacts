@@ -1,8 +1,9 @@
 import './Table.css';
-import API from '../Services/api.js';
+import API from '../../Services/api.js';
 import { useState, useEffect, useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import Search from '../Search';
+import Button from '../Button';
 
 const Table = () => {
 
@@ -58,7 +59,13 @@ const Table = () => {
         <div className='table'>
             <h2>Meus contatos</h2>
 
-            <Search/>
+            <section>
+                <Search />
+
+                <Button
+                props='new'
+                />
+            </section>
 
             <MaterialReactTable
                 columns={columns}
