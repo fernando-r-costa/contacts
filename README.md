@@ -28,9 +28,9 @@
 - [ ] Desktop-design
   - [x] Implementação tabela
   - [x] Pesquisa nome ou telefone
-  - [ ] Botão adicionar
-  - [ ] Paginação com botão (desabilitar no fim)
-  - [ ] Apresentar letra índice
+  - [x] Botão adicionar
+  - [x] Paginação com botão (desabilitar no fim)
+  - [x] Apresentar letra índice
   - [ ] Modal adicionar/editar
   - [ ] Modal excluir
 - [ ] Mobile-design

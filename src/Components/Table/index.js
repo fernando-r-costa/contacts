@@ -11,7 +11,7 @@ const Table = () => {
 
     useEffect(() => {
         API
-            .get()
+            .get('?_page=1&_limit=4')
             .then((response) => setContacts(response.data))
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
@@ -23,6 +23,16 @@ const Table = () => {
     const columns = useMemo(
         () => [
             {
+                accessorFn: (row) => (
+
+                    <div>
+                        <h3>{row.name[0]}</h3>
+                    </div>
+                ),
+                header: 'Indice',
+                size: 50,
+            },
+            {
                 id: 'avatar',
                 columnDefType: 'display',
                 Cell: () => (
@@ -30,17 +40,18 @@ const Table = () => {
                         <img src='./avatar.png' alt=''></img>
                     </div>
                 ),
+                size: 80,
             },
             {
                 accessorFn: (row) => (
                     <div>
-                        <h3>{row.name}</h3>
+                        <h4>{row.name}</h4>
                         <p>{row.fone}</p>
                     </div>
                 ),
                 header: 'Nome',
                 Header: '',
-                muiTableHeadCellProps: { sx: { color: 'green' } }, //custom props
+                size: 460,
             },
             {
                 id: 'edit',
@@ -51,6 +62,7 @@ const Table = () => {
                         <img src='./delete.png' alt=''></img>
                     </div>
                 ),
+                size: 60,
             },
         ],
         [],);
@@ -63,7 +75,7 @@ const Table = () => {
                 <Search />
 
                 <Button
-                props='new'
+                    props='new'
                 />
             </section>
 
@@ -74,6 +86,36 @@ const Table = () => {
                 enableSorting={false}
                 enableTopToolbar={false}
                 enableTableHead={false}
+                enableBottomToolbar={false}
+                enablePagination={false}
+                muiTablePaperProps={{
+                    elevation: 0,
+                    sx: {
+                        border: 'transparent',
+                    },
+                }}
+                muiTableBodyProps={{
+                    sx: {
+                        '& td:nth-of-type(1)': {
+                            borderBottom: 'transparent',
+                            paddingLeft: '0'
+                        },
+                    },
+                }}
+                muiTableBodyCellProps={{
+                    sx: {
+                        borderBottom: '1px solid #F2F2F2'
+                    },
+                }}
+            // enableGrouping
+            // initialState={{
+            //     grouping: ['Indice'],
+            //     expanded: true,
+            // }}
+            />
+
+            <Button
+                props='more'
             />
 
         </div>

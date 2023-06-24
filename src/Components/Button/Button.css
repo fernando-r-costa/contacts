@@ -1,4 +1,4 @@
-.search_button_new {
+.table_search_button_new {
     width: 181px;
     height: 36px;
     background-color: #007DFE;
@@ -16,10 +16,28 @@
     align-items: center;
 }
 
-.search_button_new img {
+.table_search_button_new img {
     margin-right: 20px;
 }
 
 button:hover {
     opacity: 80%;
+}
+
+.table_button_more {
+    width: 300px;
+    height: 48px;
+    background-color: #007DFE;
+    border-radius: 12px;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.128px;
+    cursor: pointer;
+    color: #F5F5F5;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 46px 0;
 }
