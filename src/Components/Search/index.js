@@ -1,20 +1,39 @@
+import { useState } from 'react';
 import './Search.css';
 
-const Search = () => {
+const Search = (props) => {
+
+    const [option, setOption] = useState('name');
+    const [search, setSearch] = useState('');
+
+    const onSearch = (event) => {
+        event.preventDefault()
+        console.log(`?${option}=${search}`)
+        props.newUrl(`?${option}=${search}`)
+    }
+
     return (
-        <div className='table_search'>
+        <form className='table_search' onSubmit={onSearch}>
             <div className='table_search_options'>
                 <label>Pesquisar por</label>
-                <select name='options'>
-                    <option value={"Nome"}>Nome</option>
-                    <option value={"Telefone"}>Telefone</option>
+                <select
+                    name='options'
+                    onChange={(event) => setOption(event.target.value)}
+                >
+                    <option value="name">Nome</option>
+                    <option value="fone">Telefone</option>
                 </select>
             </div>
             <div className='table_search_text'>
                 <img src='./search.png' alt=''></img>
-                <input type='search' placeholder='Pesquisar'></input>
+                <input
+                    type='search'
+                    placeholder='Pesquisar'
+                    value={search}
+                    onChange={(event) => setSearch(event.target.value)}
+                ></input>
             </div>
-        </div>
+        </form>
     )
 }
 

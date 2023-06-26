@@ -8,17 +8,21 @@ import Button from '../Button';
 const Table = () => {
 
     const [contacts, setContacts] = useState([]);
+    
+    const [url, setUrl] = useState('?_page=1&_limit=4');
 
     useEffect(() => {
         API
-            .get('?_page=1&_limit=4')
+            .get(`${url}`)
             .then((response) => setContacts(response.data))
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
             });
-    }, []);
+    }, [url]);
 
     console.log(contacts);
+
+    
 
     const columns = useMemo(
         () => [
@@ -72,7 +76,9 @@ const Table = () => {
             <h2>Meus contatos</h2>
 
             <section>
-                <Search />
+                <Search
+                    newUrl={url => setUrl(url)}
+                />
 
                 <Button
                     props='new'
