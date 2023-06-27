@@ -8,21 +8,31 @@ import Button from '../Button';
 const Table = () => {
 
     const [contacts, setContacts] = useState([]);
-    
-    const [url, setUrl] = useState('?_page=1&_limit=4');
+
+    const [page, setPage] = useState(1);
+    const [limitPage] = useState(4)
+    const [url, setUrl] = useState(`?_page=${page}&_limit=${limitPage}`);
+    const [pageCount, setPageCount] = useState()
 
     useEffect(() => {
         API
-            .get(`${url}`)
-            .then((response) => setContacts(response.data))
+            .get(url)
+            .then(function (response) {
+                setContacts(response.data);
+                setPageCount(response.headers['x-total-count'] / limitPage)
+            })
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
             });
     }, [url]);
 
-    console.log(contacts);
+    const newPage = (newPage) => {
+        setPage(page + newPage);
+    }
 
-    
+    useEffect(() => {
+        setUrl(`?_page=${page}&_limit=${limitPage}`)
+    }, [page])
 
     const columns = useMemo(
         () => [
@@ -81,7 +91,7 @@ const Table = () => {
                 />
 
                 <Button
-                    props='new'
+                    type='new'
                 />
             </section>
 
@@ -121,7 +131,10 @@ const Table = () => {
             />
 
             <Button
-                props='more'
+                type='more'
+                page={page}
+                pageCount={pageCount}
+                newPage={newPage}
             />
 
         </div>

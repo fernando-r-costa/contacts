@@ -7,9 +7,13 @@ const Search = (props) => {
     const [search, setSearch] = useState('');
 
     const onSearch = (event) => {
-        event.preventDefault()
-        console.log(`?${option}=${search}`)
-        props.newUrl(`?${option}=${search}`)
+        if(search === '') {
+            event.preventDefault()
+            props.newUrl(`?_page=1&_limit=4`)    
+        } else {
+            event.preventDefault()
+            props.newUrl(`?${option}=${search}`)
+        }
     }
 
     return (
