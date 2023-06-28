@@ -1,0 +1,10 @@
+.table_index {
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-family: 'Inter', sans-serif;
+    background-color: #333333;
+    width: 30px;
+    height: 32px;
+    border-radius: 10px;
+}

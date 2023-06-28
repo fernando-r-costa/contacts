@@ -1,0 +1,68 @@
+.table_modal {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background-color: #ffffff90;
+}
+
+.table_modal_content {
+    display: grid;
+    grid-template-columns: 369px 369px;
+    grid-template-rows: 103px 150px 106px;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+    background-color: #FFF;
+    background-size: contain;
+    width: 738px;
+    height: 319px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 10px -5px #000;
+}
+
+.table_modal_content h1 {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    color: #373737;
+    margin: 31px 21px;
+    font-weight: 700;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.table_modal_content_input_name {
+    grid-area: 2 / 1 / 3 / 2;
+    width: 326px;
+    height: 54px;
+    border-radius: 3.5px;
+    border-color: #0000001F;
+    outline-color: #6200EE;
+    margin-left: 21px;
+}
+
+.table_modal_content_input_fone {
+    grid-area: 2 / 2 / 3 / 3;
+    width: 326px;
+    height: 54px;
+    border-radius: 3.5px;
+    border-color: #0000001F;
+    outline-color: #6200EE;
+    margin-left: 20px;
+}
+
+.table_modal_content input::placeholder {
+    color: #00000099;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0.15px;
+    padding: 15px;
+}

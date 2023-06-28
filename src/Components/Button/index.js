@@ -29,7 +29,18 @@ const Button = (props) => {
                     Carregar mais
                 </button>)
         }
+    } else if (props.type === 'cancel') {
+        return (
+            <button className="table_modal_content_button_cancel">
+                Cancelar
+            </button>)
+    } else if (props.type === 'save') {
+        return (
+            <button className="table_modal_content_button_save">
+                Salvar
+            </button>)
     }
+
 }
 
 export default Button

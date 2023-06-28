@@ -4,6 +4,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { MaterialReactTable } from 'material-react-table';
 import Search from '../Search';
 import Button from '../Button';
+import Index from '../Index';
+import Modal from '../Modal';
 
 const Table = () => {
 
@@ -38,12 +40,11 @@ const Table = () => {
         () => [
             {
                 accessorFn: (row) => (
-
-                    <div>
-                        <h3>{row.name[0]}</h3>
-                    </div>
+                    <Index
+                        letter={row.name[0]}
+                    />
                 ),
-                header: 'Indice',
+                header: 'Index',
                 size: 50,
             },
             {
@@ -59,7 +60,7 @@ const Table = () => {
             {
                 accessorFn: (row) => (
                     <div>
-                        <h4>{row.name}</h4>
+                        <h3>{row.name}</h3>
                         <p>{row.fone}</p>
                     </div>
                 ),
@@ -84,6 +85,8 @@ const Table = () => {
     return (
         <div className='table'>
             <h2>Meus contatos</h2>
+
+            <Modal />
 
             <section>
                 <Search
@@ -123,11 +126,6 @@ const Table = () => {
                         borderBottom: '1px solid #F2F2F2'
                     },
                 }}
-            // enableGrouping
-            // initialState={{
-            //     grouping: ['Indice'],
-            //     expanded: true,
-            // }}
             />
 
             <Button
