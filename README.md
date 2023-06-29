@@ -31,7 +31,7 @@
   - [x] Botão adicionar
   - [x] Paginação com botão (desabilitar no fim)
   - [x] Apresentar letra índice
-  - [ ] Modal adicionar/editar
+  - [x] Modal adicionar/editar
   - [ ] Modal excluir
 - [ ] Mobile-design
   - [ ] Ocultar "Novo contato"
