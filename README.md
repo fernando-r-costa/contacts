@@ -32,7 +32,7 @@
   - [x] Paginação com botão (desabilitar no fim)
   - [x] Apresentar letra índice
   - [x] Modal adicionar/editar
-  - [ ] Modal excluir
+  - [x] Modal excluir
 - [ ] Mobile-design
   - [ ] Ocultar "Novo contato"
 

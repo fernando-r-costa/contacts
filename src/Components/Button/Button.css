@@ -60,7 +60,7 @@
     opacity: 80%;
 }
 
-.table_modal_content_button_cancel {
+.table_modal_add_button_cancel {
     grid-area: 3 / 1 / 4 / 2;
     width: 150px;
     height: 36px;
@@ -76,7 +76,7 @@
     margin-left: 389px;
 }
 
-.table_modal_content_button_save {
+.table_modal_add_button_save {
     grid-area: 3 / 2 / 4 / 3;
     width: 150px;
     height: 36px;
@@ -90,4 +90,36 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     margin-left: 200px;
+}
+
+.table_modal_delete_button_cancel {
+    grid-area: 3 / 1 / 4 / 2;
+    width: 150px;
+    height: 36px;
+    border-radius: 4px;
+    border-color: transparent;
+    background: #F5F5F5;
+    color: #333;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    margin: auto;
+}
+
+.table_modal_delete_button_confirm {
+    grid-area: 3 / 2 / 4 / 3;
+    width: 150px;
+    height: 36px;
+    border-radius: 4px;
+    border-color: transparent;
+    background: #007DFE;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+    margin: auto;
 }

@@ -29,15 +29,25 @@ const Button = (props) => {
                     Carregar mais
                 </button>)
         }
-    } else if (props.type === 'cancel') {
+    } else if (props.type === 'addCancel') {
         return (
-            <button className="table_modal_content_button_cancel">
+            <button className="table_modal_add_button_cancel">
                 Cancelar
             </button>)
     } else if (props.type === 'save') {
         return (
-            <button className="table_modal_content_button_save">
+            <button className="table_modal_add_button_save">
                 Salvar
+            </button>)
+    } else if (props.type === 'deleteCancel') {
+        return (
+            <button className="table_modal_delete_button_cancel">
+                Cancelar
+            </button>)
+    } else if (props.type === 'confirm') {
+        return (
+            <button className="table_modal_delete_button_confirm">
+                Confirmar
             </button>)
     }
 
