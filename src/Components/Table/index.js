@@ -11,6 +11,7 @@ const Table = () => {
 
     const [contacts, setContacts] = useState([]);
 
+
     const [page, setPage] = useState(1);
     const [limitPage] = useState(4)
     const [url, setUrl] = useState(`?_page=${page}&_limit=${limitPage}`);
@@ -35,6 +36,13 @@ const Table = () => {
     useEffect(() => {
         setUrl(`?_page=${page}&_limit=${limitPage}`)
     }, [page])
+
+
+    const [openModal, setOpenModal] = useState(false)
+
+    const isOpen = (isOpen) => {
+        setOpenModal(isOpen);
+    }
 
     const columns = useMemo(
         () => [
@@ -86,7 +94,10 @@ const Table = () => {
         <div className='table'>
             <h2>Meus contatos</h2>
 
-            <Modal />
+            <Modal
+                isOpen={openModal}
+                type='new'
+            />
 
             <section>
                 <Search
@@ -95,6 +106,7 @@ const Table = () => {
 
                 <Button
                     type='new'
+                    openModal={isOpen}
                 />
             </section>
 

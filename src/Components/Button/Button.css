@@ -56,7 +56,12 @@
 }
 
 .table_search_button_new:hover,
-.table_button_more_able:hover {
+.table_button_more_able:hover,
+.table_modal_add_button_cancel:hover,
+.table_modal_add_button_save:hover,
+.table_modal_delete_button_cancel:hover,
+.table_modal_delete_button_confirm:hover
+{
     opacity: 80%;
 }
 
@@ -74,6 +79,7 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     margin-left: 389px;
+    cursor: pointer;
 }
 
 .table_modal_add_button_save {
@@ -90,6 +96,7 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     margin-left: 200px;
+    cursor: pointer;
 }
 
 .table_modal_delete_button_cancel {
@@ -106,6 +113,7 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     margin: auto;
+    cursor: pointer;
 }
 
 .table_modal_delete_button_confirm {
@@ -122,4 +130,5 @@
     letter-spacing: 1.25px;
     text-transform: uppercase;
     margin: auto;
+    cursor: pointer;
 }

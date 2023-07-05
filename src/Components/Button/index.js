@@ -6,9 +6,20 @@ const Button = (props) => {
         props.newPage(1)
     }
 
+    const openModal = (type) => {
+        props.openModal(true, type)
+    }
+
+    const closeModal = () => {
+        props.closeModal(false)
+    }
+
     if (props.type === 'new') {
         return (
-            <button className="table_search_button_new">
+            <button
+                className="table_search_button_new"
+                onClick={openModal}
+            >
                 <img src='./plus.png' alt=''></img>
                 Novo contato
             </button>)
@@ -41,7 +52,10 @@ const Button = (props) => {
             </button>)
     } else if (props.type === 'deleteCancel') {
         return (
-            <button className="table_modal_delete_button_cancel">
+            <button
+                className="table_modal_delete_button_cancel"
+                onClick={closeModal}
+            >
                 Cancelar
             </button>)
     } else if (props.type === 'confirm') {
