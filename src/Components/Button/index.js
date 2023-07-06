@@ -10,10 +10,6 @@ const Button = (props) => {
         props.openModal(true, type)
     }
 
-    const closeModal = () => {
-        props.closeModal(false)
-    }
-
     if (props.type === 'new') {
         return (
             <button
@@ -42,7 +38,10 @@ const Button = (props) => {
         }
     } else if (props.type === 'addCancel') {
         return (
-            <button className="table_modal_add_button_cancel">
+            <button
+                className="table_modal_add_button_cancel"
+                onClick={props.closeModal}
+                >
                 Cancelar
             </button>)
     } else if (props.type === 'save') {
@@ -54,7 +53,6 @@ const Button = (props) => {
         return (
             <button
                 className="table_modal_delete_button_cancel"
-                onClick={closeModal}
             >
                 Cancelar
             </button>)

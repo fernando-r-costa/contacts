@@ -97,12 +97,13 @@ const Table = () => {
             <Modal
                 isOpen={openModal}
                 type='new'
-            />
+                closeModal={() => setOpenModal(!openModal)}
+                />
 
             <section>
                 <Search
                     newUrl={url => setUrl(url)}
-                />
+                    />
 
                 <Button
                     type='new'

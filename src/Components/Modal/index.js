@@ -3,9 +3,6 @@ import './Modal.css';
 
 const Modal = (props) => {
 
-    const isClose = (isOpen) => {
-        setOpenModal(isOpen);
-    }
 
     if (props.isOpen) {
 
@@ -36,7 +33,7 @@ const Modal = (props) => {
                         <input className='table_modal_add_input_fone' placeholder='Telefone*'></input>
                         <Button
                             type='addCancel'
-                            closeModal={isClose}
+                            closeModal={props.closeModal}
                         />
                         <Button
                             type='save'
