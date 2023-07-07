@@ -41,24 +41,27 @@ const Button = (props) => {
             <button
                 className="table_modal_add_button_cancel"
                 onClick={props.closeModal}
-                >
+            >
                 Cancelar
             </button>)
     } else if (props.type === 'save') {
         return (
-            <button className="table_modal_add_button_save">
+            <button
+                className="table_modal_add_button_save">
                 Salvar
             </button>)
     } else if (props.type === 'deleteCancel') {
         return (
             <button
                 className="table_modal_delete_button_cancel"
+                onClick={props.closeModal}
             >
                 Cancelar
             </button>)
     } else if (props.type === 'confirm') {
         return (
-            <button className="table_modal_delete_button_confirm">
+            <button
+                className="table_modal_delete_button_confirm">
                 Confirmar
             </button>)
     }

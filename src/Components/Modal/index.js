@@ -17,6 +17,7 @@ const Modal = (props) => {
                         </div>
                         <Button
                             type='deleteCancel'
+                            closeModal={props.closeModal}
                         />
                         <Button
                             type='confirm'
@@ -50,6 +51,7 @@ const Modal = (props) => {
                         <input className='table_modal_add_input_fone' placeholder='Telefone*'></input>
                         <Button
                             type='addCancel'
+                            closeModal={props.closeModal}
                         />
                         <Button
                             type='save'
@@ -57,10 +59,8 @@ const Modal = (props) => {
                     </div>
                 </div>
             )
-
         }
     }
-
     return null
 }
 
