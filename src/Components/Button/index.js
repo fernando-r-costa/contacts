@@ -47,7 +47,9 @@ const Button = (props) => {
     } else if (props.type === 'save') {
         return (
             <button
-                className="table_modal_add_button_save">
+                className="table_modal_add_button_save"
+                onClick={props.onSave}
+            >
                 Salvar
             </button>)
     } else if (props.type === 'deleteCancel') {

@@ -1,8 +1,31 @@
+import { useEffect, useState } from 'react';
 import Button from '../Button';
 import './Modal.css';
+import API from '../../Services/api';
 
 const Modal = (props) => {
 
+    const [name, setName] = useState('');
+    const [fone, setFone] = useState('');
+    const [reqBody, setReqBody] = useState('');
+
+    const onSave = () => {
+        setReqBody(
+            {
+                "id": "",
+                "name": `${name}`,
+                "fone": `${fone}`
+            }
+        )
+    }
+
+    useEffect(() => {
+        API
+            .post('', reqBody)
+
+        console.log(reqBody)
+
+    }, [reqBody]);
 
     if (props.isOpen) {
 
@@ -30,14 +53,25 @@ const Modal = (props) => {
                 <div className='table_modal'>
                     <div className='table_modal_add'>
                         <h1>Adicionar contato</h1>
-                        <input className='table_modal_add_input_name' placeholder='Nome*'></input>
-                        <input className='table_modal_add_input_fone' placeholder='Telefone*'></input>
+                        <input
+                            className='table_modal_add_input_name'
+                            placeholder='Nome*'
+                            value={name}
+                            onChange={(event) => setName(event.target.value)}
+                        ></input>
+                        <input
+                            className='table_modal_add_input_fone'
+                            placeholder='Telefone*'
+                            value={fone}
+                            onChange={(event) => setFone(event.target.value)}
+                        ></input>
                         <Button
                             type='addCancel'
                             closeModal={props.closeModal}
                         />
                         <Button
                             type='save'
+                            onSave={onSave}
                         />
                     </div>
                 </div>

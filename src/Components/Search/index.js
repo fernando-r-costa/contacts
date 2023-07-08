@@ -29,7 +29,7 @@ const Search = (props) => {
                 </select>
             </div>
             <div className='table_search_text'>
-                <img src='./search.png' alt=''></img>
+                <img src='./search.png' alt='' onClick={onSearch}></img>
                 <input
                     type='search'
                     placeholder='Pesquisar'

@@ -14,7 +14,7 @@ const Table = () => {
 
     const [page, setPage] = useState(1);
     const [limitPage] = useState(4)
-    const [url, setUrl] = useState(`?_page=${page}&_limit=${limitPage}`);
+    const [url, setUrl] = useState(`?_sort=name&_page=${page}&_limit=${limitPage}`);
     const [pageCount, setPageCount] = useState()
 
     useEffect(() => {
@@ -34,14 +34,16 @@ const Table = () => {
     }
 
     useEffect(() => {
-        setUrl(`?_page=${page}&_limit=${limitPage}`)
+        setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
     }, [page])
 
 
     const [openModal, setOpenModal] = useState(false)
+    const [typeModal, setTypeModal] = useState('')
 
     const isOpen = (isOpen) => {
         setOpenModal(isOpen);
+        setTypeModal(isOpen);
     }
 
     const columns = useMemo(
@@ -81,8 +83,8 @@ const Table = () => {
                 columnDefType: 'display',
                 Cell: () => (
                     <div className='table_edit'>
-                        <img src='./edit.png' alt=''></img>
-                        <img src='./delete.png' alt=''></img>
+                        <img src='./edit.png' alt='' onClick={() => {isOpen('edit')}}></img>
+                        <img src='./delete.png' alt='' onClick={() => {isOpen('delete')}}></img>
                     </div>
                 ),
                 size: 60,
@@ -96,7 +98,7 @@ const Table = () => {
 
             <Modal
                 isOpen={openModal}
-                type='new'
+                type={typeModal}
                 closeModal={() => setOpenModal(!openModal)}
                 />
 
@@ -107,7 +109,7 @@ const Table = () => {
 
                 <Button
                     type='new'
-                    openModal={isOpen}
+                    openModal={() => {isOpen('new')}}
                 />
             </section>
 
