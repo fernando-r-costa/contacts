@@ -11,11 +11,22 @@ const Table = () => {
 
     const [contacts, setContacts] = useState([]);
 
-
     const [page, setPage] = useState(1);
     const [limitPage] = useState(4)
     const [url, setUrl] = useState(`?_sort=name&_page=${page}&_limit=${limitPage}`);
     const [pageCount, setPageCount] = useState()
+
+    const newPage = (newPage) => {
+        setPage(page + newPage);
+    }
+
+    const [openModal, setOpenModal] = useState(false)
+    const [typeModal, setTypeModal] = useState('')
+    
+    const isOpen = (isOpen) => {
+        setOpenModal(isOpen);
+        setTypeModal(isOpen);
+    }
 
     useEffect(() => {
         API
@@ -27,24 +38,11 @@ const Table = () => {
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
             });
-    }, [url]);
-
-    const newPage = (newPage) => {
-        setPage(page + newPage);
-    }
+    }, [url, openModal]);
 
     useEffect(() => {
         setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
     }, [page])
-
-
-    const [openModal, setOpenModal] = useState(false)
-    const [typeModal, setTypeModal] = useState('')
-
-    const isOpen = (isOpen) => {
-        setOpenModal(isOpen);
-        setTypeModal(isOpen);
-    }
 
     const columns = useMemo(
         () => [
@@ -83,8 +81,8 @@ const Table = () => {
                 columnDefType: 'display',
                 Cell: () => (
                     <div className='table_edit'>
-                        <img src='./edit.png' alt='' onClick={() => {isOpen('edit')}}></img>
-                        <img src='./delete.png' alt='' onClick={() => {isOpen('delete')}}></img>
+                        <img src='./edit.png' alt='' onClick={() => { isOpen('edit') }}></img>
+                        <img src='./delete.png' alt='' onClick={() => { isOpen('delete') }}></img>
                     </div>
                 ),
                 size: 60,
@@ -100,16 +98,16 @@ const Table = () => {
                 isOpen={openModal}
                 type={typeModal}
                 closeModal={() => setOpenModal(!openModal)}
-                />
+            />
 
             <section>
                 <Search
                     newUrl={url => setUrl(url)}
-                    />
+                />
 
                 <Button
                     type='new'
-                    openModal={() => {isOpen('new')}}
+                    openModal={() => { isOpen('new') }}
                 />
             </section>
 

@@ -7,25 +7,25 @@ const Modal = (props) => {
 
     const [name, setName] = useState('');
     const [fone, setFone] = useState('');
-    const [reqBody, setReqBody] = useState('');
 
-    const onSave = () => {
-        setReqBody(
+    const onSave = (event) => {
+        event.preventDefault()
+        API
+            .post('',
             {
                 "id": "",
                 "name": `${name}`,
                 "fone": `${fone}`
-            }
-        )
+            })
+            .then(response => console.log(response.data))
+            .then(setName(''), setFone(''))
     }
 
-    useEffect(() => {
-        API
-            .post('', reqBody)
-
-        console.log(reqBody)
-
-    }, [reqBody]);
+    const noSubmit = (e) => {
+        if(e.keyCode === 13) {
+            e.preventDefault();
+        }
+    }
 
     if (props.isOpen) {
 
@@ -51,19 +51,23 @@ const Modal = (props) => {
         } else if (props.type === 'new') {
             return (
                 <div className='table_modal'>
-                    <div className='table_modal_add'>
+                    <form className='table_modal_add' onSubmit={onSave} onKeyDown={noSubmit}>
                         <h1>Adicionar contato</h1>
                         <input
                             className='table_modal_add_input_name'
                             placeholder='Nome*'
                             value={name}
                             onChange={(event) => setName(event.target.value)}
+                            required
                         ></input>
                         <input
                             className='table_modal_add_input_fone'
+                            type='tel'
                             placeholder='Telefone*'
                             value={fone}
                             onChange={(event) => setFone(event.target.value)}
+                            pattern="\(\d{2}\)\s*\d{5}-\d{4}"
+                            required
                         ></input>
                         <Button
                             type='addCancel'
@@ -71,9 +75,8 @@ const Modal = (props) => {
                         />
                         <Button
                             type='save'
-                            onSave={onSave}
                         />
-                    </div>
+                    </form>
                 </div>
             )
         } else if (props.type === 'edit') {
