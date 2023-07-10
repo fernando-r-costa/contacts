@@ -33,7 +33,7 @@ const Table = () => {
             .get(url)
             .then(function (response) {
                 setContacts(response.data);
-                setPageCount(response.headers['x-total-count'] / limitPage)
+                setPageCount(Math.round(response.headers['x-total-count'] / limitPage))
             })
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
