@@ -19,6 +19,52 @@ const Button = (props) => {
                 <img src='./plus.png' alt=''></img>
                 Novo contato
             </button>)
+
+    } else if (props.type === 'save') {
+        return (
+            <button
+                className="table_modal_add_button_save"
+                onClick={props.onSave}
+            >
+                Salvar
+            </button>)
+
+    } else if (props.type === 'update') {
+        return (
+            <button
+                className="table_modal_edit_button_save"
+                onClick={props.onUpdate}
+            >
+                Salvar
+            </button>)
+
+    } else if (props.type === 'addCancel') {
+        return (
+            <button
+                className="table_modal_add_button_cancel"
+                onClick={props.closeModal}
+            >
+                Cancelar
+            </button>)
+
+    } else if (props.type === 'confirm') {
+        return (
+            <button
+                className="table_modal_delete_button_confirm"
+                onClick={props.onDelete}
+            >
+                Confirmar
+            </button>)
+
+    } else if (props.type === 'deleteCancel') {
+        return (
+            <button
+                className="table_modal_delete_button_cancel"
+                onClick={props.closeModal}
+            >
+                Cancelar
+            </button>)
+
     } else if (props.type === 'more') {
         if (props.page === props.pageCount) {
             return (
@@ -36,38 +82,7 @@ const Button = (props) => {
                     Carregar mais
                 </button>)
         }
-    } else if (props.type === 'addCancel') {
-        return (
-            <button
-                className="table_modal_add_button_cancel"
-                onClick={props.closeModal}
-            >
-                Cancelar
-            </button>)
-    } else if (props.type === 'save') {
-        return (
-            <button
-                className="table_modal_add_button_save"
-                onClick={props.onSave}
-            >
-                Salvar
-            </button>)
-    } else if (props.type === 'deleteCancel') {
-        return (
-            <button
-                className="table_modal_delete_button_cancel"
-                onClick={props.closeModal}
-            >
-                Cancelar
-            </button>)
-    } else if (props.type === 'confirm') {
-        return (
-            <button
-                className="table_modal_delete_button_confirm">
-                Confirmar
-            </button>)
     }
-
 }
 
 export default Button

@@ -22,10 +22,16 @@ const Table = () => {
 
     const [openModal, setOpenModal] = useState(false)
     const [typeModal, setTypeModal] = useState('')
-    
-    const isOpen = (isOpen) => {
+    const [id, setId] = useState('')
+    const [name, setName] = useState('')
+    const [fone, setFone] = useState('')
+
+    const isOpen = (isOpen, id, name, fone) => {
         setOpenModal(isOpen);
         setTypeModal(isOpen);
+        setId(id);
+        setName(name);
+        setFone(fone);
     }
 
     useEffect(() => {
@@ -78,11 +84,14 @@ const Table = () => {
             },
             {
                 id: 'edit',
-                columnDefType: 'display',
-                Cell: () => (
+                accessorFn: (row) => (
                     <div className='table_edit'>
-                        <img src='./edit.png' alt='' onClick={() => { isOpen('edit') }}></img>
-                        <img src='./delete.png' alt='' onClick={() => { isOpen('delete') }}></img>
+                        <img src='./edit.png' alt=''
+                            onClick={() => { isOpen('edit',row.id, row.name, row.fone) }}
+                        ></img>
+                        <img src='./delete.png' alt=''
+                            onClick={() => { isOpen('delete',row.id, row.name, row.fone) }}
+                        ></img>
                     </div>
                 ),
                 size: 60,
@@ -98,6 +107,9 @@ const Table = () => {
                 isOpen={openModal}
                 type={typeModal}
                 closeModal={() => setOpenModal(!openModal)}
+                id={id}
+                name={name}
+                fone={fone}
             />
 
             <section>

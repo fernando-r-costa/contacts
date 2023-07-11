@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Button from '../Button';
 import './Modal.css';
 import API from '../../Services/api';
@@ -8,47 +8,65 @@ const Modal = (props) => {
     const [name, setName] = useState('');
     const [fone, setFone] = useState('');
 
-    const onSave = (event) => {
-        event.preventDefault()
-        API
-            .post('',
-            {
-                "id": "",
-                "name": `${name}`,
-                "fone": `${fone}`
-            })
-            .then(response => console.log(response.data))
-            .then(setName(''), setFone(''))
-    }
-
     const noSubmit = (e) => {
-        if(e.keyCode === 13) {
+        if (e.keyCode === 13) {
             e.preventDefault();
         }
     }
 
+    const onSave = (event) => {
+        event.preventDefault()
+        API
+            .post('',
+                {
+                    "id": "",
+                    "name": `${name}`,
+                    "fone": `${fone}`
+                })
+            .then(setName(''), setFone(''))
+    }
+
+    const onDelete = () => {
+        API
+            .delete(props.id)
+    }
+
+    const onUpdate = () => {
+        if (name === '' && fone === '') {
+            return null
+        } else if (name !== '' && fone !== '') {
+            API
+                .put(props.id,
+                    {
+                        "id": props.id,
+                        "name": `${name}`,
+                        "fone": `${fone}`
+                    })
+                .then(setName(''), setFone(''))
+        } else if (name === '') {
+            API
+                .put(props.id,
+                    {
+                        "id": props.id,
+                        "name": props.name,
+                        "fone": `${fone}`
+                    })
+                .then(setName(''), setFone(''))
+        } else if (fone === '') {
+            API
+                .put(props.id,
+                    {
+                        "id": props.id,
+                        "name": `${name}`,
+                        "fone": props.fone
+                    })
+                .then(setName(''), setFone(''))
+        }  
+    }
+
     if (props.isOpen) {
 
-        if (props.type === 'delete') {
-            return (
-                <div className='table_modal'>
-                    <div className='table_modal_delete'>
-                        <h1>Excluir contato</h1>
-                        <div className='table_modal_delete_user'>
-                            <div>Usuário:nome</div>
-                            <div>Telefone:fone</div>
-                        </div>
-                        <Button
-                            type='deleteCancel'
-                            closeModal={props.closeModal}
-                        />
-                        <Button
-                            type='confirm'
-                        />
-                    </div>
-                </div>
-            )
-        } else if (props.type === 'new') {
+        if (props.type === 'new') {
             return (
                 <div className='table_modal'>
                     <form className='table_modal_add' onSubmit={onSave} onKeyDown={noSubmit}>
@@ -79,21 +97,51 @@ const Modal = (props) => {
                     </form>
                 </div>
             )
+
         } else if (props.type === 'edit') {
             return (
                 <div className='table_modal'>
-                    <div className='table_modal_edit'>
+                    <form className='table_modal_edit' onSubmit={onUpdate} onKeyDown={noSubmit}>
                         <h1>Editar contato</h1>
-                        <input className='table_modal_add_input_name' placeholder='Nome*'></input>
-                        <input className='table_modal_add_input_fone' placeholder='Telefone*'></input>
+                        <input
+                            className='table_modal_add_input_name'
+                            defaultValue={props.name}
+                            onChange={(event) => setName(event.target.value)}
+                        ></input>
+                        <input
+                            className='table_modal_add_input_fone'
+                            defaultValue={props.fone}
+                            onChange={(event) => setFone(event.target.value)}
+                            pattern="\(\d{2}\)\s*\d{5}-\d{4}"
+                        ></input>
                         <Button
                             type='addCancel'
                             closeModal={props.closeModal}
                         />
                         <Button
-                            type='save'
+                            type='update'
                         />
-                    </div>
+                    </form>
+                </div>
+            )
+
+        } else if (props.type === 'delete') {
+            return (
+                <div className='table_modal'>
+                    <form className='table_modal_delete' onSubmit={onDelete} onKeyDown={noSubmit}>
+                        <h1>Excluir contato</h1>
+                        <div className='table_modal_delete_user'>
+                            <div>Nome: {props.name}</div>
+                            <div>Telefone: {props.fone}</div>
+                        </div>
+                        <Button
+                            type='deleteCancel'
+                            closeModal={props.closeModal}
+                        />
+                        <Button
+                            type='confirm'
+                        />
+                    </form>
                 </div>
             )
         }
