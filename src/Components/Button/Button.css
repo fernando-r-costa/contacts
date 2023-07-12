@@ -4,16 +4,19 @@
     background-color: #007DFE;
     border-radius: 8px;
     border: none;
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    cursor: pointer;
-    color: #FFF;
     padding: 0;
     margin: 6px 0 0 72px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.table_search_button_new span {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #FFF;
 }
 
 .table_search_button_new img {
@@ -133,4 +136,19 @@
     text-transform: uppercase;
     margin: auto;
     cursor: pointer;
+}
+
+@media screen and (max-width: 720px) {
+
+    .table_search_button_new {
+        width: 48px;
+    }
+
+    .table_search_button_new span {
+        display: none;
+    }
+
+    .table_search_button_new img {
+        margin-right: 0;
+    }
 }

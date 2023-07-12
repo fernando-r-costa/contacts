@@ -34,7 +34,7 @@
   - [x] Modal adicionar/editar
   - [x] Modal excluir
 - [ ] Mobile-design
-  - [ ] Ocultar "Novo contato"
+  - [x] Ocultar "Novo contato"
 
 ## Autor
 

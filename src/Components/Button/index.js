@@ -17,7 +17,7 @@ const Button = (props) => {
                 onClick={openModal}
             >
                 <img src='./plus.png' alt=''></img>
-                Novo contato
+                <span>Novo contato</span>
             </button>)
 
     } else if (props.type === 'save') {
