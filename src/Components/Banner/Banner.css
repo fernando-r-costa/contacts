@@ -14,3 +14,10 @@
 .banner strong {
     font-weight: 800;
 }
+
+@media screen and (max-width: 720px) {
+
+    .banner h1 {
+        padding: 30px 8vw;
+    }
+}

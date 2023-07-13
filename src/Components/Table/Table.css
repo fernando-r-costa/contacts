@@ -1,9 +1,8 @@
 .table {
-    width: 744px;
+    width: 830px;
     margin-left: 53px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .table h2 {
@@ -14,6 +13,10 @@
     margin: 40px 0 46px 0;
     height: 60px;
     align-self: flex-start;
+}
+
+.table_contato{
+    margin-left: -15px;
 }
 
 .table h3 {
@@ -41,5 +44,20 @@
 }
 
 .table section {
-    display: inline-flex
+    display: inline-flex;
+}
+
+@media screen and (max-width: 720px) {
+    .table {
+        margin-left: 4vw;
+        width: 90vw;
+    }
+
+    .table section {
+        width: 90vw;
+    }
+
+    .table_avatar img {
+        width: 10vw;
+    }
 }

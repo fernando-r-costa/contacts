@@ -59,7 +59,7 @@ const Table = () => {
                     />
                 ),
                 header: 'Index',
-                size: 50,
+                maxSize: 20,
             },
             {
                 id: 'avatar',
@@ -69,18 +69,18 @@ const Table = () => {
                         <img src='./avatar.png' alt=''></img>
                     </div>
                 ),
-                size: 80,
+                maxSize: 30,
             },
             {
                 accessorFn: (row) => (
-                    <div>
+                    <div className='table_contato'>
                         <h3>{row.name}</h3>
                         <p>{row.fone}</p>
                     </div>
                 ),
                 header: 'Nome',
                 Header: '',
-                size: 460,
+                maxSize: 100,
             },
             {
                 id: 'edit',
@@ -94,7 +94,7 @@ const Table = () => {
                         ></img>
                     </div>
                 ),
-                size: 60,
+                maxSize: 30,
             },
         ],
         [],);

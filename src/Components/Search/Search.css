@@ -71,3 +71,27 @@
     font-family: 'Inter', sans-serif;
     line-height: 21px;
 }
+
+@media screen and (max-width: 720px) {
+    .table_search {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        width: 60vw;
+        height: 90px;
+    }
+
+    .table_search_text {
+        border-top: 1px solid #EBEBEB;
+        border-left: none;
+        width: 60vw;
+    }
+
+    .table_search_options {
+        width: 60vw;
+    }
+
+    .table_search_text input {
+        width: 47vw;
+    }
+}
