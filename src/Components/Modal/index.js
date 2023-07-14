@@ -22,13 +22,17 @@ const Modal = (props) => {
                     "id": "",
                     "name": `${name}`,
                     "fone": `${fone}`
-                })
+                }, {
+                headers: { 'Content-Type': 'application/json' }
+            })
+            .catch(function (error) { console.log(error); })
             .then(setName(''), setFone(''))
     }
 
     const onDelete = () => {
         API
             .delete(props.id)
+            .catch(function (error) { console.log(error); })
     }
 
     const onUpdate = () => {
@@ -42,6 +46,7 @@ const Modal = (props) => {
                         "name": `${name}`,
                         "fone": `${fone}`
                     })
+                .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
         } else if (name === '') {
             API
@@ -51,6 +56,7 @@ const Modal = (props) => {
                         "name": props.name,
                         "fone": `${fone}`
                     })
+                .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
         } else if (fone === '') {
             API
@@ -60,8 +66,9 @@ const Modal = (props) => {
                         "name": `${name}`,
                         "fone": props.fone
                     })
+                .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
-        }  
+        }
     }
 
     if (props.isOpen) {
