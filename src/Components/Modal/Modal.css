@@ -20,7 +20,7 @@
     grid-row-gap: 0;
     background-color: #FFF;
     background-size: contain;
-    width: 738px;
+    max-width: 738px;
     height: 319px;
     border-radius: 4px;
     box-shadow: 1px 1px 10px -5px #000;
@@ -75,7 +75,7 @@
     grid-row-gap: 0;
     background-color: #FFF;
     background-size: contain;
-    width: 405px;
+    max-width: 405px;
     height: 325px;
     border-radius: 4px;
     box-shadow: 1px 1px 10px -5px #000;
@@ -110,7 +110,7 @@
     grid-row-gap: 0;
     background-color: #FFF;
     background-size: contain;
-    width: 738px;
+    max-width: 738px;
     height: 319px;
     border-radius: 4px;
     box-shadow: 1px 1px 10px -5px #000;
@@ -128,6 +128,30 @@
 
 @media screen and (max-width: 720px) {
 
+    .table_modal_add,
+    .table_modal_delete,
+    .table_modal_edit {
+        grid-template-columns: 160px 56vw;
+        grid-template-rows: 103px 80px 100px 60px;
+        width: 90vw;
+        height: fit-content;
+    }
     
+    .table_modal_add h1,
+    .table_modal_delete h1,
+    .table_modal_edit h1 {
+        grid-area: 1 / 1 / 2 / 3;
+    }
+    
+    .table_modal_add_input_name,
+    .table_modal_delete_user {
+        grid-area: 2 / 1 / 3 / 3;
+        width: 75vw;
+    }
+    
+    .table_modal_add_input_fone {
+        grid-area: 3 / 1 / 4 / 3;
+        width: 75vw;
+    }
 
 }

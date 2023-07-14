@@ -1,19 +1,9 @@
 {
   "contacts": [
     {
-      "id": "2",
-      "name": "Alice Santoso",
-      "fone": "(21) 92345-6788"
-    },
-    {
       "id": "4",
       "name": "Bruno Souza",
       "fone": "(41) 94567-8901"
-    },
-    {
-      "id": "5",
-      "name": "Beatriz Lima",
-      "fone": "(51) 95678-9012"
     },
     {
       "id": "6",

@@ -157,4 +157,19 @@
     .table_button_more_disable {
         margin: 46px 4vw;
     }
+
+    .table_modal_add_button_cancel,
+    .table_modal_delete_button_cancel {
+        grid-area: 4 / 1 / 5 / 2;
+        width: 130px;
+        margin-left: 20px;
+    }
+    
+    .table_modal_add_button_save,
+    .table_modal_edit_button_save,
+    .table_modal_delete_button_confirm {
+        grid-area: 4 / 2 / 5 / 3;
+        width: 130px;
+        margin-left: 20px;
+    }
 }

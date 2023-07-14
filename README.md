@@ -30,10 +30,10 @@
   - [x] Pesquisa nome ou telefone
   - [x] Botão adicionar
   - [x] Paginação com botão (desabilitar no fim)
-  - [x] Apresentar letra índice
+  - [ ] Apresentar letra índice apenas no primeiro contato
   - [x] Modal adicionar/editar
   - [x] Modal excluir
-- [ ] Mobile-design
+- [x] Mobile-design
   - [x] Ocultar "Novo contato"
 
 ## Autor
