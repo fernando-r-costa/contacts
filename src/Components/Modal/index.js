@@ -44,6 +44,8 @@ const Modal = (props) => {
                         "id": props.id,
                         "name": `${name}`,
                         "fone": `${fone}`
+                    }, {
+                        headers: { 'Content-Type': 'application/json' }
                     })
                 .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
@@ -54,6 +56,8 @@ const Modal = (props) => {
                         "id": props.id,
                         "name": props.name,
                         "fone": `${fone}`
+                    }, {
+                        headers: { 'Content-Type': 'application/json' }
                     })
                 .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
@@ -64,6 +68,8 @@ const Modal = (props) => {
                         "id": props.id,
                         "name": `${name}`,
                         "fone": props.fone
+                    }, {
+                        headers: { 'Content-Type': 'application/json' }
                     })
                 .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
