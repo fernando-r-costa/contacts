@@ -14,8 +14,7 @@ const Modal = (props) => {
         }
     }
 
-    const onSave = (event) => {
-        event.preventDefault()
+    const onSave = () => {
         API
             .post('',
                 {

@@ -44,11 +44,11 @@ const Table = () => {
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
             });
-    }, [url, openModal]);
+    }, [url]);
 
     useEffect(() => {
         setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
-    }, [page])
+    }, [page, openModal])
 
     const columns = useMemo(
         () => [
