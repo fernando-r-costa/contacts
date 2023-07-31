@@ -21,6 +21,8 @@
 
 ## Meu processo
 
+Primeira Etapa:
+
 - [ ] Desktop-design
   - [x] Implementação tabela
   - [x] Pesquisa nome ou telefone
@@ -31,6 +33,17 @@
   - [x] Modal excluir
 - [x] Mobile-design
   - [x] Ocultar "Novo contato"
+
+Segunda Etapa:
+
+- [ ] Correção Bugs
+  - [ ] Pesquisar sem ser palavra ou telefone exato.
+  - [ ] Novo contato
+    - [ ] Salvar nome com inicial maiúscula
+    - [ ] Informar padrão para telefone
+  - [ ] Não fazer paginação
+  - [ ] Informar dados salvos
+  - [ ] Criar índice com primeira letra salva separada
 
 ## Autor
 
