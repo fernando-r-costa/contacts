@@ -12,9 +12,9 @@ const Table = () => {
     const [contacts, setContacts] = useState([]);
 
     const [page, setPage] = useState(1);
-    const [limitPage] = useState(4)
-    const [url, setUrl] = useState(`?_sort=name&_page=${page}&_limit=${limitPage}`);
-    const [pageCount, setPageCount] = useState()
+    // const [limitPage] = useState(4)
+    const [url, setUrl] = useState(``);
+    // const [pageCount, setPageCount] = useState()
 
     const newPage = (newPage) => {
         setPage(page + newPage);
@@ -39,16 +39,16 @@ const Table = () => {
             .get(url)
             .then(function (response) {
                 setContacts(response.data);
-                setPageCount(Math.round(response.headers['x-total-count'] / limitPage))
+                // setPageCount(Math.round(response.headers['x-total-count'] / limitPage))
             })
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
             });
-    }, [url]);
+    }, []);
 
-    useEffect(() => {
-        setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
-    }, [page, openModal])
+    // useEffect(() => {
+    //     setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
+    // }, [page, openModal])
 
     const columns = useMemo(
         () => [
@@ -63,7 +63,7 @@ const Table = () => {
             },
             {
                 id: 'avatar',
-                columnDefType: 'display',
+                // columnDefType: 'display',
                 Cell: () => (
                     <div className='table_avatar'>
                         <img src='./avatar.png' alt=''></img>
@@ -113,9 +113,9 @@ const Table = () => {
             />
 
             <section>
-                <Search
+                {/* <Search
                     newUrl={url => setUrl(url)}
-                />
+                /> */}
 
                 <Button
                     type='new'
@@ -126,12 +126,12 @@ const Table = () => {
             <MaterialReactTable
                 columns={columns}
                 data={contacts}
-                enableColumnActions={false}
-                enableSorting={false}
-                enableTopToolbar={false}
-                enableTableHead={false}
-                enableBottomToolbar={false}
-                enablePagination={false}
+                // enableColumnActions={false}
+                // enableSorting={false}
+                // enableTopToolbar={false}
+                // enableTableHead={false}
+                // enableBottomToolbar={false}
+                // enablePagination={false}
                 muiTablePaperProps={{
                     elevation: 0,
                     sx: {
@@ -153,12 +153,12 @@ const Table = () => {
                 }}
             />
 
-            <Button
+            {/* <Button
                 type='more'
                 page={page}
                 pageCount={pageCount}
                 newPage={newPage}
-            />
+            /> */}
 
         </div>
     )

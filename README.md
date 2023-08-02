@@ -44,6 +44,8 @@ Segunda Etapa:
   - [ ] Não fazer paginação
   - [ ] Informar dados salvos
   - [ ] Criar índice com primeira letra salva separada
+  - [ ] Traduzir erro planilha sem dados
+  - [ ] Implantar Tailwind
 
 ## Autor
 
