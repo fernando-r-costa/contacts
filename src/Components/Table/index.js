@@ -10,15 +10,25 @@ import Modal from '../Modal';
 const Table = () => {
 
     const [contacts, setContacts] = useState([]);
+    const [option, setOption] = useState('');
+    const [search, setSearch] = useState('');
+    
+    let filterContacts = contacts;
+    
+    if (option === 'name') {
+        filterContacts = contacts.filter((contact) => contact.name.toLowerCase().includes(search))
+    } else if (option === 'fone') {
+        filterContacts = contacts.filter((contact) => contact.fone.includes(search))
+    }
 
-    const [page, setPage] = useState(1);
+    // const [page, setPage] = useState(1);
     // const [limitPage] = useState(4)
-    const [url, setUrl] = useState(``);
+    // const [url, setUrl] = useState(``);
     // const [pageCount, setPageCount] = useState()
 
-    const newPage = (newPage) => {
-        setPage(page + newPage);
-    }
+    // const newPage = (newPage) => {
+    //     setPage(page + newPage);
+    // }
 
     const [openModal, setOpenModal] = useState(false)
     const [typeModal, setTypeModal] = useState('')
@@ -36,7 +46,7 @@ const Table = () => {
 
     useEffect(() => {
         API
-            .get(url)
+            .get()
             .then(function (response) {
                 setContacts(response.data);
                 // setPageCount(Math.round(response.headers['x-total-count'] / limitPage))
@@ -49,6 +59,7 @@ const Table = () => {
     // useEffect(() => {
     //     setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
     // }, [page, openModal])
+
 
     const columns = useMemo(
         () => [
@@ -69,6 +80,7 @@ const Table = () => {
                         <img src='./avatar.png' alt=''></img>
                     </div>
                 ),
+                header: 'Avatar',
                 maxSize: 30,
             },
             {
@@ -79,7 +91,6 @@ const Table = () => {
                     </div>
                 ),
                 header: 'Nome',
-                Header: '',
                 maxSize: 100,
             },
             {
@@ -87,13 +98,14 @@ const Table = () => {
                 accessorFn: (row) => (
                     <div className='table_edit'>
                         <img src='./edit.png' alt=''
-                            onClick={() => { isOpen('edit',row.id, row.name, row.fone) }}
+                            onClick={() => { isOpen('edit', row.id, row.name, row.fone) }}
                         ></img>
                         <img src='./delete.png' alt=''
-                            onClick={() => { isOpen('delete',row.id, row.name, row.fone) }}
+                            onClick={() => { isOpen('delete', row.id, row.name, row.fone) }}
                         ></img>
                     </div>
                 ),
+                header: 'Editar',
                 maxSize: 30,
             },
         ],
@@ -113,9 +125,11 @@ const Table = () => {
             />
 
             <section>
-                {/* <Search
-                    newUrl={url => setUrl(url)}
-                /> */}
+                <Search
+                    // newUrl={url => setUrl(url)}
+                    option={option => setOption(option)}
+                    search={search => setSearch(search.toLowerCase())}
+                />
 
                 <Button
                     type='new'
@@ -125,13 +139,13 @@ const Table = () => {
 
             <MaterialReactTable
                 columns={columns}
-                data={contacts}
-                // enableColumnActions={false}
-                // enableSorting={false}
-                // enableTopToolbar={false}
-                // enableTableHead={false}
-                // enableBottomToolbar={false}
-                // enablePagination={false}
+                data={filterContacts}
+                enableColumnActions={false}
+                enableSorting={false}
+                enableTopToolbar={false}
+                enableTableHead={false}
+                enableBottomToolbar={false}
+                enablePagination={false}
                 muiTablePaperProps={{
                     elevation: 0,
                     sx: {

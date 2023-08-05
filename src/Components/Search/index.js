@@ -7,13 +7,16 @@ const Search = (props) => {
     const [search, setSearch] = useState('');
 
     const onSearch = (event) => {
-        if(search === '') {
+        // if(search === '') {
+        //     event.preventDefault()
+        //     props.newUrl(`?_page=1&_limit=4`)    
+        // } else {
+        //     event.preventDefault()
+        //     props.newUrl(`?${option}=${search}`)
+        // }
             event.preventDefault()
-            props.newUrl(`?_page=1&_limit=4`)    
-        } else {
-            event.preventDefault()
-            props.newUrl(`?${option}=${search}`)
-        }
+            props.option(option)
+            props.search(search)
     }
 
     return (
