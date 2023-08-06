@@ -37,7 +37,7 @@ Primeira Etapa:
 Segunda Etapa:
 
 - [ ] Correção Bugs
-  - [ ] Pesquisar sem ser palavra ou telefone exato.
+  - [x] Pesquisar sem ser palavra ou telefone exato.
   - [ ] Novo contato
     - [ ] Salvar nome com inicial maiúscula
     - [ ] Informar padrão para telefone
