@@ -40,7 +40,7 @@ Segunda Etapa:
   - [x] Pesquisar sem ser palavra ou telefone exato
   - [x] Salvar primeira letra separada no banco de dados
   - [ ] Novo contato
-    - [ ] Salvar nome com inicial maiúscula
+    - [x] Salvar nome com inicial maiúscula
     - [ ] Informar padrão para telefone
   - [ ] Não fazer paginação
   - [ ] Informar dados salvos

@@ -15,12 +15,18 @@ const Modal = (props) => {
     }
 
     const onSave = () => {
+        const names = name.split(' ');
+        const upperCaseName = names.map((name) => {
+            return name[0].toUpperCase() + name.substring(1);
+        }).join(' ');
+        
         API
             .post('',
                 {
                     "id": "",
-                    "name": `${name}`,
-                    "fone": `${fone}`
+                    "name": `${upperCaseName}`,
+                    "fone": `${fone}`,
+                    "firstLetter": `${name[0].toLowerCase()}`,
                 }, {
                 headers: { 'Content-Type': 'application/json' }
             })
