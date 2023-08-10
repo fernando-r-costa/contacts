@@ -39,9 +39,9 @@ Segunda Etapa:
 - [ ] Correção Bugs
   - [x] Pesquisar sem ser palavra ou telefone exato
   - [x] Salvar primeira letra separada no banco de dados
-  - [ ] Novo contato
+  - [x] Novo contato
     - [x] Salvar nome com inicial maiúscula
-    - [ ] Informar padrão para telefone
+    - [x] Informar padrão para telefone
   - [ ] Não fazer paginação
   - [ ] Informar dados salvos
   - [ ] Criar índice com primeira letra salva separada

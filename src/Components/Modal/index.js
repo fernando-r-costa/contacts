@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import InputMask from 'react-input-mask';
 import Button from '../Button';
 import './Modal.css';
 import API from '../../Services/api';
@@ -96,15 +97,15 @@ const Modal = (props) => {
                             onChange={(event) => setName(event.target.value)}
                             required
                         ></input>
-                        <input
+                        <InputMask
                             className='table_modal_add_input_fone'
-                            type='tel'
+                            mask="(99) 99999-9999"
                             placeholder='Telefone*'
                             value={fone}
                             onChange={(event) => setFone(event.target.value)}
                             pattern="\(\d{2}\)\s*\d{5}-\d{4}"
                             required
-                        ></input>
+                        />
                         <Button
                             type='addCancel'
                             closeModal={props.closeModal}
@@ -126,12 +127,14 @@ const Modal = (props) => {
                             defaultValue={props.name}
                             onChange={(event) => setName(event.target.value)}
                         ></input>
-                        <input
+                        <InputMask
                             className='table_modal_add_input_fone'
+                            mask="(99) 99999-9999"
                             defaultValue={props.fone}
                             onChange={(event) => setFone(event.target.value)}
                             pattern="\(\d{2}\)\s*\d{5}-\d{4}"
-                        ></input>
+                            required
+                        />
                         <Button
                             type='addCancel'
                             closeModal={props.closeModal}
