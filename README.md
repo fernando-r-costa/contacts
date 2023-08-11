@@ -42,7 +42,7 @@ Segunda Etapa:
   - [x] Novo contato
     - [x] Salvar nome com inicial maiúscula
     - [x] Informar padrão para telefone
-  - [ ] Não fazer paginação
+  - [x] Não fazer paginação
   - [ ] Informar dados salvos
   - [ ] Criar índice com primeira letra salva separada
   - [ ] Traduzir erro planilha sem dados

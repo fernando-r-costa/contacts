@@ -2,8 +2,8 @@ import './Button.css';
 
 const Button = (props) => {
 
-    const newPage = () => {
-        props.newPage(1)
+    const morePage = () => {
+        props.morePage(4)
     }
 
     const openModal = (type) => {
@@ -66,7 +66,7 @@ const Button = (props) => {
             </button>)
 
     } else if (props.type === 'more') {
-        if (props.page === props.pageCount) {
+        if (props.limitPage >= props.pageCount) {
             return (
                 <button
                     className="table_button_more_disable"
@@ -77,7 +77,7 @@ const Button = (props) => {
             return (
                 <button
                     className="table_button_more_able"
-                    onClick={newPage}
+                    onClick={morePage}
                 >
                     Carregar mais
                 </button>)

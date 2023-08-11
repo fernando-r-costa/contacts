@@ -22,13 +22,13 @@ const Table = () => {
     }
 
     // const [page, setPage] = useState(1);
-    // const [limitPage] = useState(4)
-    // const [url, setUrl] = useState(``);
-    // const [pageCount, setPageCount] = useState()
+    const [limitPage, setLimitPage] = useState(4)
+    const [url, setUrl] = useState(`?_sort=name&_page=1&_limit=${limitPage}`);
+    const [pageCount, setPageCount] = useState()
 
-    // const newPage = (newPage) => {
-    //     setPage(page + newPage);
-    // }
+    const morePage = (morePage) => {
+        setLimitPage(limitPage + morePage);
+    }
 
     const [openModal, setOpenModal] = useState(false)
     const [typeModal, setTypeModal] = useState('')
@@ -46,19 +46,19 @@ const Table = () => {
 
     useEffect(() => {
         API
-            .get()
+            .get(url)
             .then(function (response) {
                 setContacts(response.data);
-                // setPageCount(Math.round(response.headers['x-total-count'] / limitPage))
+                setPageCount(response.headers['x-total-count']);
             })
             .catch((err) => {
                 console.error("Ocorreu um erro" + err);
             });
-    }, []);
+    }, [url]);
 
-    // useEffect(() => {
-    //     setUrl(`?_sort=name&_page=${page}&_limit=${limitPage}`)
-    // }, [page, openModal])
+    useEffect(() => {
+        setUrl(`?_sort=name&_page=1&_limit=${limitPage}`)
+    }, [limitPage, openModal])
 
 
     const columns = useMemo(
@@ -167,12 +167,12 @@ const Table = () => {
                 }}
             />
 
-            {/* <Button
+            <Button
                 type='more'
-                page={page}
+                limitPage={limitPage}
                 pageCount={pageCount}
-                newPage={newPage}
-            /> */}
+                morePage={morePage}
+            />
 
         </div>
     )
