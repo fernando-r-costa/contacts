@@ -20,7 +20,7 @@ const Modal = (props) => {
         const upperCaseName = names.map((name) => {
             return name[0].toUpperCase() + name.substring(1);
         }).join(' ');
-        
+
         API
             .post('',
                 {
@@ -52,8 +52,8 @@ const Modal = (props) => {
                         "name": `${name}`,
                         "fone": `${fone}`
                     }, {
-                        headers: { 'Content-Type': 'application/json' }
-                    })
+                    headers: { 'Content-Type': 'application/json' }
+                })
                 .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
         } else if (name === '') {
@@ -64,8 +64,8 @@ const Modal = (props) => {
                         "name": props.name,
                         "fone": `${fone}`
                     }, {
-                        headers: { 'Content-Type': 'application/json' }
-                    })
+                    headers: { 'Content-Type': 'application/json' }
+                })
                 .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
         } else if (fone === '') {
@@ -76,8 +76,8 @@ const Modal = (props) => {
                         "name": `${name}`,
                         "fone": props.fone
                     }, {
-                        headers: { 'Content-Type': 'application/json' }
-                    })
+                    headers: { 'Content-Type': 'application/json' }
+                })
                 .catch(function (error) { console.log(error); })
                 .then(setName(''), setFone(''))
         }
@@ -161,6 +161,25 @@ const Modal = (props) => {
                         />
                         <Button
                             type='confirm'
+                        />
+                    </form>
+                </div>
+            )
+        } else if (props.type === "loading") {
+            return (
+                <div className='table_modal'>
+                    <form className='table_modal_loading'>
+                        <div className="custom-loader"></div>
+                    </form>
+                </div>
+            )
+        } else if (props.type === "saved") {
+            return (
+                <div className='table_modal'>
+                    <form className='table_modal_loading'>
+                        <h1>Salvo</h1>
+                        <Button
+                            type='ok'
                         />
                     </form>
                 </div>

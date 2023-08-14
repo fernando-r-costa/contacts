@@ -82,6 +82,14 @@ const Button = (props) => {
                     Carregar mais
                 </button>)
         }
+    } else if (props.type === 'ok') {
+        return (
+            <button
+                className="table_modal_delete_button_confirm"
+                onClick={props.closeModal}
+            >
+                OK
+            </button>)
     }
 }
 
