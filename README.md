@@ -44,7 +44,7 @@ Segunda Etapa:
     - [x] Informar padrão para telefone
   - [x] Não fazer paginação
   - [ ] Informar dados salvos
-  - [ ] Criar índice com primeira letra salva separada
+  - [1/2] Criar índice com primeira letra salva separada
   - [ ] Traduzir erro planilha sem dados
   - [ ] Implantar Tailwind
 
