@@ -23,7 +23,7 @@
 
 Primeira Etapa:
 
-- [ ] Desktop-design
+- [x] Desktop-design
   - [x] Implementação tabela
   - [x] Pesquisa nome ou telefone
   - [x] Botão adicionar
@@ -45,7 +45,7 @@ Segunda Etapa:
   - [x] Não fazer paginação
   - [ ] Informar dados salvos
   - [1/2] Criar índice com primeira letra salva separada
-  - [ ] Traduzir erro planilha sem dados
+  - [x] Traduzir erro planilha sem dados
   - [ ] Implantar Tailwind
 
 ## Autor

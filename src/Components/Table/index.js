@@ -117,72 +117,82 @@ const Table = () => {
     []
   );
 
-  return (
-    <div className="table">
-      <h2>Meus contatos</h2>
+  if (contacts.length <= 0) {
+    return (
+      <div className="div_loader">
+        <div className="custom_loader"></div>
+      </div>
+    )
+  } else {
+    return (
+      <div className="table">
+        <h2>Meus contatos</h2>
 
-      <Modal
-        isOpen={openModal}
-        type={typeModal}
-        closeModal={() => setOpenModal(!openModal)}
-        id={id}
-        name={name}
-        fone={fone}
-      />
+        <Modal
+          isOpen={openModal}
+          type={typeModal}
+          closeModal={() => setOpenModal(!openModal)}
+          id={id}
+          name={name}
+          fone={fone}
+        />
 
-      <section>
-        <Search
-          // newUrl={url => setUrl(url)}
-          option={(option) => setOption(option)}
-          search={(search) => setSearch(search.toLowerCase())}
+        <section>
+          <Search
+            // newUrl={url => setUrl(url)}
+            option={(option) => setOption(option)}
+            search={(search) => setSearch(search.toLowerCase())}
+          />
+
+          <Button
+            type="new"
+            openModal={() => {
+              isOpen("new");
+            }}
+          />
+        </section>
+
+        <MaterialReactTable
+          columns={columns}
+          data={filterContacts}
+          enableColumnActions={false}
+          enableSorting={false}
+          enableTopToolbar={false}
+          enableTableHead={false}
+          enableBottomToolbar={false}
+          enablePagination={false}
+          muiTablePaperProps={{
+            elevation: 0,
+            sx: {
+              border: "transparent",
+            },
+          }}
+          muiTableBodyProps={{
+            sx: {
+              "& td:nth-of-type(1)": {
+                borderBottom: "transparent",
+                paddingLeft: "0",
+              },
+            },
+          }}
+          muiTableBodyCellProps={{
+            sx: {
+              borderBottom: "1px solid #F2F2F2",
+            },
+          }}
         />
 
         <Button
-          type="new"
-          openModal={() => {
-            isOpen("new");
-          }}
+          type="more"
+          limitPage={limitPage}
+          pageCount={pageCount}
+          morePage={morePage}
         />
-      </section>
+      </div>
+    );
+  }
+}
 
-      <MaterialReactTable
-        columns={columns}
-        data={filterContacts}
-        enableColumnActions={false}
-        enableSorting={false}
-        enableTopToolbar={false}
-        enableTableHead={false}
-        enableBottomToolbar={false}
-        enablePagination={false}
-        muiTablePaperProps={{
-          elevation: 0,
-          sx: {
-            border: "transparent",
-          },
-        }}
-        muiTableBodyProps={{
-          sx: {
-            "& td:nth-of-type(1)": {
-              borderBottom: "transparent",
-              paddingLeft: "0",
-            },
-          },
-        }}
-        muiTableBodyCellProps={{
-          sx: {
-            borderBottom: "1px solid #F2F2F2",
-          },
-        }}
-      />
 
-      <Button
-        type="more"
-        limitPage={limitPage}
-        pageCount={pageCount}
-        morePage={morePage}
-      />
-    </div>
-  );
-};
 
 export default Table;
